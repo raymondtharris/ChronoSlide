@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZVT-sG-O5v">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alarms-->
+        <scene sceneID="BEz-ga-Fj1">
+            <objects>
+                <tableViewController id="9Iz-pW-VDb" customClass="AlarmTableViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="zpL-1O-J85">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="100" id="7iD-Ls-MzZ" customClass="AlarmTableCellView" customModule="ChronoSlide" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7iD-Ls-MzZ" id="mEA-a0-jqM">
+                                    <frame key="frameInset" width="375" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd1-Ib-imc">
+                                            <frame key="frameInset" minX="18" minY="13" width="66" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUf-S1-hEu">
+                                            <frame key="frameInset" minX="123" minY="13" width="348" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="123" y="13" width="254" height="70"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="alamTimeLabel" destination="qd1-Ib-imc" id="C4M-yD-uX7"/>
+                                    <outlet property="alarmOptionsLabel" destination="VUf-S1-hEu" id="1mu-ph-lWP"/>
+                                    <segue destination="JsC-fF-64p" kind="show" identifier="EditSegue" id="83j-we-tee"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Iz-pW-VDb" id="4rO-Gt-wTM"/>
+                            <outlet property="delegate" destination="9Iz-pW-VDb" id="eaV-o9-4NL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alarms" id="DPE-wD-rN1">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Hct-5I-fSV">
+                            <connections>
+                                <action selector="goToSettings:" destination="9Iz-pW-VDb" id="WBr-8b-PjO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q4u-4k-ujJ">
+                            <connections>
+                                <segue destination="Pa5-M4-Xtu" kind="show" id="E02-vX-kOt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsButton" destination="Hct-5I-fSV" id="nFD-0E-gGv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WIQ-3g-zFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="489" y="376"/>
+        </scene>
+        <!--New Alarm-->
+        <scene sceneID="lf2-wF-dWw">
+            <objects>
+                <viewController id="Pa5-M4-Xtu" customClass="AddAlarmViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SSB-6G-bh9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qp1-6R-OKc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jqe-3U-Zws">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-I4-zcU">
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gco-kS-UUj">
+                                        <segments>
+                                            <segment title="AM"/>
+                                            <segment title="PM"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alarm Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ij-r5-cwY">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n3-l1-DNr">
+                                        <frame key="frameInset" minX="20" minY="410" width="266" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZZ-L4-zsi">
+                                        <frame key="frameInset" minX="334" minY="405" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="gLf-N0-GLt"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="gLf-N0-GLt"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="gLf-N0-GLt"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="Rwp-vg-Bn3" kind="show" id="khj-6a-gjF"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="QBI-et-wYX">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="139" id="EfZ-ed-ErR"/>
+                                            <constraint firstAttribute="width" constant="127" id="Rxy-0c-T4o">
+                                                <variation key="widthClass=compact" constant="290"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="EfZ-ed-ErR"/>
+                                                <exclude reference="Rxy-0c-T4o"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="EfZ-ed-ErR"/>
+                                                <include reference="Rxy-0c-T4o"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akg-hL-aOt">
+                                        <frame key="frameInset" minX="20" minY="495" width="42" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-5N-pWI">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5Q-bv-orC">
+                                        <frame key="frameInset" minX="334" minY="490" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="7SW-c2-A0L" kind="show" identifier="NewRepeatSegue" id="hwV-Nk-ktO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpZ-cs-aFi">
+                                        <frame key="frameInset" minX="20" minY="454" width="54" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qRi-5N-pWI" firstAttribute="top" secondItem="6Ij-r5-cwY" secondAttribute="bottom" constant="19" id="5Gh-Rd-Ljr"/>
+                                    <constraint firstItem="gco-kS-UUj" firstAttribute="centerX" secondItem="6Ij-r5-cwY" secondAttribute="centerX" id="EUR-D2-xg1"/>
+                                    <constraint firstItem="ZpZ-cs-aFi" firstAttribute="top" secondItem="0n3-l1-DNr" secondAttribute="bottom" constant="24" id="FEA-1D-gei"/>
+                                    <constraint firstItem="0n3-l1-DNr" firstAttribute="top" secondItem="qRi-5N-pWI" secondAttribute="bottom" constant="12" id="GXr-sD-ItN"/>
+                                    <constraint firstItem="6Ij-r5-cwY" firstAttribute="trailing" secondItem="kZZ-L4-zsi" secondAttribute="trailing" id="Jna-8b-NGQ"/>
+                                    <constraint firstItem="Akg-hL-aOt" firstAttribute="baseline" secondItem="a5Q-bv-orC" secondAttribute="baseline" id="PBs-ja-Jib"/>
+                                    <constraint firstAttribute="bottom" secondItem="a5Q-bv-orC" secondAttribute="bottom" constant="150" id="S9H-tR-rer"/>
+                                    <constraint firstItem="6Ij-r5-cwY" firstAttribute="top" secondItem="gco-kS-UUj" secondAttribute="bottom" constant="46" id="SFo-WP-Amy"/>
+                                    <constraint firstItem="6Ij-r5-cwY" firstAttribute="leading" secondItem="Djj-I4-zcU" secondAttribute="leading" constant="20" id="Tnw-d2-GV8"/>
+                                    <constraint firstItem="QBI-et-wYX" firstAttribute="leading" secondItem="gco-kS-UUj" secondAttribute="leading" id="Uli-Np-hz0"/>
+                                    <constraint firstItem="0n3-l1-DNr" firstAttribute="leading" secondItem="ZpZ-cs-aFi" secondAttribute="leading" id="cyq-zE-Myf"/>
+                                    <constraint firstItem="kZZ-L4-zsi" firstAttribute="leading" secondItem="a5Q-bv-orC" secondAttribute="leading" id="dft-XK-FmN"/>
+                                    <constraint firstItem="QBI-et-wYX" firstAttribute="top" secondItem="Djj-I4-zcU" secondAttribute="top" constant="101" id="exZ-AH-Lqb">
+                                        <variation key="widthClass=compact" constant="37"/>
+                                    </constraint>
+                                    <constraint firstItem="Akg-hL-aOt" firstAttribute="top" secondItem="ZpZ-cs-aFi" secondAttribute="bottom" constant="20" id="fqp-fe-wki"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ij-r5-cwY" secondAttribute="trailing" constant="19" id="h5z-h6-GZ1"/>
+                                    <constraint firstItem="QBI-et-wYX" firstAttribute="leading" secondItem="Djj-I4-zcU" secondAttribute="leading" constant="55" id="hw5-wG-0jR"/>
+                                    <constraint firstItem="qRi-5N-pWI" firstAttribute="leading" secondItem="0n3-l1-DNr" secondAttribute="leading" id="j14-0x-EJH"/>
+                                    <constraint firstItem="gco-kS-UUj" firstAttribute="top" secondItem="QBI-et-wYX" secondAttribute="bottom" constant="78" id="kts-Cw-ONF"/>
+                                    <constraint firstItem="0n3-l1-DNr" firstAttribute="baseline" secondItem="kZZ-L4-zsi" secondAttribute="baseline" id="ndt-a1-ggP"/>
+                                    <constraint firstItem="kZZ-L4-zsi" firstAttribute="leading" secondItem="0n3-l1-DNr" secondAttribute="trailing" constant="48" id="olm-UV-Cbd"/>
+                                    <constraint firstItem="6Ij-r5-cwY" firstAttribute="leading" secondItem="qRi-5N-pWI" secondAttribute="leading" id="ooh-G9-2U1"/>
+                                    <constraint firstItem="ZpZ-cs-aFi" firstAttribute="leading" secondItem="Akg-hL-aOt" secondAttribute="leading" id="tDC-mW-pKD"/>
+                                    <constraint firstItem="gco-kS-UUj" firstAttribute="centerX" secondItem="Djj-I4-zcU" secondAttribute="centerX" id="y7M-sK-hP8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Akg-hL-aOt"/>
+                                        <exclude reference="qRi-5N-pWI"/>
+                                        <exclude reference="a5Q-bv-orC"/>
+                                        <exclude reference="ZpZ-cs-aFi"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="PBs-ja-Jib"/>
+                                        <exclude reference="fqp-fe-wki"/>
+                                        <exclude reference="FEA-1D-gei"/>
+                                        <exclude reference="tDC-mW-pKD"/>
+                                        <exclude reference="S9H-tR-rer"/>
+                                        <exclude reference="5Gh-Rd-Ljr"/>
+                                        <exclude reference="j14-0x-EJH"/>
+                                        <exclude reference="GXr-sD-ItN"/>
+                                        <exclude reference="cyq-zE-Myf"/>
+                                        <exclude reference="ndt-a1-ggP"/>
+                                        <exclude reference="Jna-8b-NGQ"/>
+                                        <exclude reference="SFo-WP-Amy"/>
+                                        <exclude reference="Tnw-d2-GV8"/>
+                                        <exclude reference="h5z-h6-GZ1"/>
+                                        <exclude reference="ooh-G9-2U1"/>
+                                        <exclude reference="Uli-Np-hz0"/>
+                                        <exclude reference="exZ-AH-Lqb"/>
+                                        <exclude reference="hw5-wG-0jR"/>
+                                        <exclude reference="EUR-D2-xg1"/>
+                                        <exclude reference="kts-Cw-ONF"/>
+                                        <exclude reference="y7M-sK-hP8"/>
+                                        <exclude reference="dft-XK-FmN"/>
+                                        <exclude reference="olm-UV-Cbd"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="Akg-hL-aOt"/>
+                                        <include reference="qRi-5N-pWI"/>
+                                        <include reference="a5Q-bv-orC"/>
+                                        <include reference="ZpZ-cs-aFi"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="PBs-ja-Jib"/>
+                                        <include reference="fqp-fe-wki"/>
+                                        <include reference="FEA-1D-gei"/>
+                                        <include reference="tDC-mW-pKD"/>
+                                        <include reference="S9H-tR-rer"/>
+                                        <include reference="5Gh-Rd-Ljr"/>
+                                        <include reference="j14-0x-EJH"/>
+                                        <include reference="GXr-sD-ItN"/>
+                                        <include reference="cyq-zE-Myf"/>
+                                        <include reference="ndt-a1-ggP"/>
+                                        <include reference="Jna-8b-NGQ"/>
+                                        <include reference="SFo-WP-Amy"/>
+                                        <include reference="Tnw-d2-GV8"/>
+                                        <include reference="h5z-h6-GZ1"/>
+                                        <include reference="ooh-G9-2U1"/>
+                                        <include reference="Uli-Np-hz0"/>
+                                        <include reference="exZ-AH-Lqb"/>
+                                        <include reference="hw5-wG-0jR"/>
+                                        <include reference="EUR-D2-xg1"/>
+                                        <include reference="kts-Cw-ONF"/>
+                                        <include reference="y7M-sK-hP8"/>
+                                        <include reference="dft-XK-FmN"/>
+                                        <include reference="olm-UV-Cbd"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Djj-I4-zcU" secondAttribute="trailing" id="4ek-lo-G1R"/>
+                            <constraint firstItem="Djj-I4-zcU" firstAttribute="leading" secondItem="Jqe-3U-Zws" secondAttribute="leading" id="nsm-rx-faE"/>
+                            <constraint firstItem="Djj-I4-zcU" firstAttribute="bottom" secondItem="Qp1-6R-OKc" secondAttribute="top" id="rhJ-2f-nHY"/>
+                            <constraint firstItem="Djj-I4-zcU" firstAttribute="top" secondItem="SSB-6G-bh9" secondAttribute="bottom" id="yU3-xF-pJI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4ek-lo-G1R"/>
+                                <exclude reference="nsm-rx-faE"/>
+                                <exclude reference="rhJ-2f-nHY"/>
+                                <exclude reference="yU3-xF-pJI"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="4ek-lo-G1R"/>
+                                <include reference="nsm-rx-faE"/>
+                                <include reference="rhJ-2f-nHY"/>
+                                <include reference="yU3-xF-pJI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Alarm" id="K6w-IT-aPg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ALC-4y-ktE">
+                            <connections>
+                                <action selector="commitNewAlarm:" destination="Pa5-M4-Xtu" id="WZw-LM-uSc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="800"/>
+                    <connections>
+                        <outlet property="alarmAMPMSegmentedControl" destination="gco-kS-UUj" id="FLm-W4-CEm"/>
+                        <outlet property="alarmNameTextField" destination="6Ij-r5-cwY" id="6bD-VT-nmn"/>
+                        <outlet property="alarmRepeatLabel" destination="Akg-hL-aOt" id="kh6-Da-6mJ"/>
+                        <outlet property="alarmRepeatTitleLabel" destination="ZpZ-cs-aFi" id="YO4-ae-Z9g"/>
+                        <outlet property="alarmTimeTextField" destination="QBI-et-wYX" id="Kfq-G1-YYm"/>
+                        <outlet property="alarmToneLabel" destination="0n3-l1-DNr" id="G0f-BJ-ob1"/>
+                        <outlet property="chooseRepeatButton" destination="a5Q-bv-orC" id="A3i-R5-E3u"/>
+                        <outlet property="chooseToneButton" destination="kZZ-L4-zsi" id="yEv-80-rUU"/>
+                        <outlet property="scrollView" destination="Djj-I4-zcU" id="R7V-dy-POj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EOX-ZF-u6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="376"/>
+        </scene>
+        <!--Choose Song-->
+        <scene sceneID="0aX-iR-nPL">
+            <objects>
+                <tableViewController id="Rwp-vg-Bn3" customClass="AddSongsTableViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" id="JyE-ee-NV0">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlarmSongCell" rowHeight="76" id="u8d-1E-x6t" customClass="AddSongTableCellView" customModule="ChronoSlide" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="400" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u8d-1E-x6t" id="kic-tj-Xks">
+                                    <frame key="frameInset" width="400" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1e-53-vyd">
+                                            <frame key="frameInset" minX="19" minY="4" width="60" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="21" y="7" width="60" height="60"/>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kY-GQ-ATO">
+                                            <frame key="frameInset" minX="89" minY="17" width="367" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="27" width="295" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="alarmSongImageView" destination="R1e-53-vyd" id="Mqi-c9-H05"/>
+                                    <outlet property="alarmSongTextLabel" destination="2kY-GQ-ATO" id="Ni6-bU-HMR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rwp-vg-Bn3" id="q3f-n3-OoK"/>
+                            <outlet property="delegate" destination="Rwp-vg-Bn3" id="pIN-YA-XAj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Song" id="vlJ-rP-Pe6">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="sMv-c4-jHS">
+                            <connections>
+                                <action selector="doneSongAction:" destination="Rwp-vg-Bn3" id="YgY-RV-EHz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="currentSongView" destination="Zez-82-9Jm" id="Krd-0H-tZQ"/>
+                        <outlet property="songsTableView" destination="JyE-ee-NV0" id="JG2-pu-lNg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NYt-ip-PPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Zez-82-9Jm" customClass="SelectedSongView" customModule="ChronoSlide" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oiC-Lt-RId">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="16" y="6" width="96" height="96"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjJ-2b-fHT">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="120" y="12" width="272" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-ZO-XUA">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="120" y="43" width="272" height="21"/>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTj-fC-nHZ">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="120" y="72" width="66" height="21"/>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="oiC-Lt-RId"/>
+                            <exclude reference="zjJ-2b-fHT"/>
+                            <exclude reference="9uv-ZO-XUA"/>
+                            <exclude reference="lTj-fC-nHZ"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="oiC-Lt-RId"/>
+                            <include reference="zjJ-2b-fHT"/>
+                            <include reference="9uv-ZO-XUA"/>
+                            <include reference="lTj-fC-nHZ"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="selectedSongArtitst" destination="9uv-ZO-XUA" id="S5f-uJ-5qC"/>
+                        <outlet property="selectedSongDuration" destination="lTj-fC-nHZ" id="5Ob-oc-TyQ"/>
+                        <outlet property="selectedSongImageView" destination="oiC-Lt-RId" id="vWj-BZ-tim"/>
+                        <outlet property="selectedSongTitle" destination="zjJ-2b-fHT" id="3cQ-Ap-Ehd"/>
+                    </connections>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="2064" y="376"/>
+        </scene>
+        <!--Choose Song-->
+        <scene sceneID="iNn-af-lo5">
+            <objects>
+                <tableViewController id="33U-IR-xsl" customClass="EditSongsTableViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" id="L78-0Y-Eq8">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="kS5-GD-ost" customClass="EditSongTableCellView" customModule="ChronoSlide" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="400" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kS5-GD-ost" id="Sgy-Z5-zbz">
+                                    <frame key="frameInset" width="400" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1a-y1-bkr">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="15" y="8" width="60" height="60"/>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3z-dY-afx">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="83" y="27" width="264" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="q1a-y1-bkr"/>
+                                            <exclude reference="e3z-dY-afx"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="q1a-y1-bkr"/>
+                                            <include reference="e3z-dY-afx"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="alarmSongImageView" destination="q1a-y1-bkr" id="fgh-65-3Li"/>
+                                    <outlet property="alarmSongTextLabel" destination="e3z-dY-afx" id="TOG-Jj-WZd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="33U-IR-xsl" id="SFk-0p-2B7"/>
+                            <outlet property="delegate" destination="33U-IR-xsl" id="Dra-hB-Ffg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Song" id="JTr-my-AlC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAX-54-5Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="1347"/>
+        </scene>
+        <!--Choose Repeat-->
+        <scene sceneID="iFx-Bc-PVg">
+            <objects>
+                <tableViewController id="tNh-xU-MO1" customClass="EditAlarmRepeatTableViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HJz-6v-Wqr">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditAlarmRepeatCellView" id="c12-Gi-56b" customClass="EditRepeatTableCellView" customModule="ChronoSlide" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="400" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c12-Gi-56b" id="g3p-xf-Ks4">
+                                    <frame key="frameInset" width="400" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10w-4Z-ssv">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="18" y="11" width="142" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="10w-4Z-ssv"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="10w-4Z-ssv"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repeatTypeLabel" destination="10w-4Z-ssv" id="GcD-bI-sgO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tNh-xU-MO1" id="uEH-hi-gwV"/>
+                            <outlet property="delegate" destination="tNh-xU-MO1" id="hzR-6W-735"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Repeat" id="uga-mi-MNE">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="l3L-vu-5sx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NXv-zk-ou8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="commitRepeats:" destination="tNh-xU-MO1" eventType="touchUpInside" id="Nu0-Ot-Bko"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="repeatDoneButton" destination="l3L-vu-5sx" id="j7P-GF-9SP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXr-AS-Jn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="2309"/>
+        </scene>
+        <!--Choose Repeat-->
+        <scene sceneID="JLe-Yi-Ehz">
+            <objects>
+                <tableViewController id="7SW-c2-A0L" customClass="AddAlarmRepeatTableViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qlB-Nm-Ivz">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlarmRepeatCellView" id="G0h-Bh-QMl" customClass="AddRepeatTableCellView" customModule="ChronoSlide" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="400" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G0h-Bh-QMl" id="cFJ-ma-ewn">
+                                    <frame key="frameInset" width="400" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="490-iu-x9t">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="17" y="11" width="230" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="490-iu-x9t"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="490-iu-x9t"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repeatTypeLabel" destination="490-iu-x9t" id="OZ9-eq-SXn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7SW-c2-A0L" id="A3y-lw-4f7"/>
+                            <outlet property="delegate" destination="7SW-c2-A0L" id="pBe-Cu-UDh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Repeat" id="Zfz-EV-bJz">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="957-1t-i4b">
+                            <connections>
+                                <action selector="commitRepeats:" destination="7SW-c2-A0L" id="7Bj-de-2jV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="repeatDoneButton" destination="957-1t-i4b" id="Vgj-jH-m0p"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6w-zi-uh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2064" y="1347"/>
+        </scene>
+        <!--Edit Alarm-->
+        <scene sceneID="UI6-pV-Gho">
+            <objects>
+                <viewController id="JsC-fF-64p" customClass="EditAlarmViewController" customModule="ChronoSlide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="okY-S3-h88"/>
+                        <viewControllerLayoutGuide type="bottom" id="LlG-t5-UeH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ixw-46-2GJ">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQ8-JQ-6SM">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvL-mY-VPj">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="54" y="75" width="293" height="139"/>
+                                        </variation>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-B1-v9S">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="AM"/>
+                                            <segment title="PM"/>
+                                        </segments>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="54" y="240" width="293" height="29"/>
+                                        </variation>
+                                    </segmentedControl>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alarm Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8B-3C-UDW">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="31" y="314" width="338" height="30"/>
+                                        </variation>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJo-Yu-HXB">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="424" width="265" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="306-YL-VA8">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="327" y="420" width="46" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="chooseSong:" destination="JsC-fF-64p" eventType="touchUpInside" id="uOJ-Lz-E91"/>
+                                            <segue destination="33U-IR-xsl" kind="show" identifier="EditSongSegue" id="bAb-Yj-Paa"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et6-7w-jpi">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="384" width="71" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0e-Wz-crv">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="474" width="65" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mII-1I-GBj">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="517" width="265" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-yg-aCO">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="327" y="513" width="46" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="tNh-xU-MO1" kind="show" identifier="EditRepeatSegue" id="MUI-Rh-eWf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-Yr-gKF">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Remove Alarm"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="27" y="595" width="346" height="45"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="removeAlarm:" destination="JsC-fF-64p" eventType="touchUpInside" id="RlP-PL-Xqj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vvL-mY-VPj"/>
+                                        <exclude reference="3dt-B1-v9S"/>
+                                        <exclude reference="x8B-3C-UDW"/>
+                                        <exclude reference="TJo-Yu-HXB"/>
+                                        <exclude reference="306-YL-VA8"/>
+                                        <exclude reference="et6-7w-jpi"/>
+                                        <exclude reference="C0e-Wz-crv"/>
+                                        <exclude reference="mII-1I-GBj"/>
+                                        <exclude reference="vSF-yg-aCO"/>
+                                        <exclude reference="rEt-Yr-gKF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="736"/>
+                                    <mask key="subviews">
+                                        <include reference="vvL-mY-VPj"/>
+                                        <include reference="3dt-B1-v9S"/>
+                                        <include reference="x8B-3C-UDW"/>
+                                        <include reference="TJo-Yu-HXB"/>
+                                        <include reference="306-YL-VA8"/>
+                                        <include reference="et6-7w-jpi"/>
+                                        <include reference="C0e-Wz-crv"/>
+                                        <include reference="mII-1I-GBj"/>
+                                        <include reference="vSF-yg-aCO"/>
+                                        <include reference="rEt-Yr-gKF"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="AQ8-JQ-6SM"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="AQ8-JQ-6SM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Alarm" id="gqN-i1-DL0">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="Y1p-vm-8X5">
+                            <connections>
+                                <action selector="updateAlarm:" destination="JsC-fF-64p" id="a4F-PV-Vnt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="800"/>
+                    <connections>
+                        <outlet property="RepeatSectionLabel" destination="C0e-Wz-crv" id="N3y-dW-Ody"/>
+                        <outlet property="SongSectionLabel" destination="et6-7w-jpi" id="2Gk-nX-Nnr"/>
+                        <outlet property="alarmAMPMSegmentControl" destination="3dt-B1-v9S" id="Tds-yn-Vva"/>
+                        <outlet property="alarmNameLabel" destination="x8B-3C-UDW" id="407-61-Zyc"/>
+                        <outlet property="alarmNameTextField" destination="x8B-3C-UDW" id="2hV-io-EZN"/>
+                        <outlet property="alarmRepeatLabel" destination="mII-1I-GBj" id="hxg-tL-av9"/>
+                        <outlet property="alarmSongLabel" destination="TJo-Yu-HXB" id="eze-vr-ZxR"/>
+                        <outlet property="alarmSoundLabel" destination="TJo-Yu-HXB" id="Add-X5-d1x"/>
+                        <outlet property="alarmTimeTextField" destination="vvL-mY-VPj" id="uHv-7L-9fz"/>
+                        <outlet property="alarmToneChooseButton" destination="306-YL-VA8" id="1Sh-YR-gYd"/>
+                        <outlet property="chooseRepeatButton" destination="vSF-yg-aCO" id="IMQ-Ms-6N3"/>
+                        <outlet property="chooseRepeats" destination="vSF-yg-aCO" id="4Cb-se-JkI"/>
+                        <outlet property="chooseSongButton" destination="306-YL-VA8" id="Svm-Sy-aCa"/>
+                        <outlet property="scrollView" destination="AQ8-JQ-6SM" id="qeG-Pu-R8e"/>
+                        <outlet property="updateAlarmButton" destination="Y1p-vm-8X5" id="CHt-es-CTK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEN-k3-pSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="489" y="1333"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qb7-pR-elC">
+            <objects>
+                <navigationController id="ZVT-sG-O5v" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kM3-2K-ZX7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9Iz-pW-VDb" kind="relationship" relationship="rootViewController" id="K1p-cZ-la1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1m-Dw-SEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="376"/>
+        </scene>
+    </scenes>
+</document>
