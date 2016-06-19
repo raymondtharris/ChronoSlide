@@ -638,7 +638,7 @@ let loadedIncrement = 20
 
 class AddSongsTableViewController: UITableViewController {
     let mediaLibrary: MPMediaLibrary = MPMediaLibrary.default()
-    var songArray:[MPMediaItem] = MPMediaQuery().items!
+    lazy var songArray:[MPMediaItem] = MPMediaQuery().items!
     let mediaPlayer: MPMusicPlayerController = MPMusicPlayerController()
     var filteredSongArray:[MPMediaItem] = [MPMediaItem]()
     let searchbarController = UISearchController(searchResultsController: nil)
@@ -714,7 +714,7 @@ class AddSongsTableViewController: UITableViewController {
             //cell.alarmSongImageView.image = self.filteredSongArray[x.row].artwork?.imageWithSize(cell.alarmSongImageView.frame.size)
         } else {
             //print(indexPath.row)
-            cell.alarmSongTextLabel.text = loadedLibrary[(indexPath as NSIndexPath).row].title!
+            cell.alarmSongTextLabel.text = self.songArray[(indexPath as NSIndexPath).row].title!
             //cell.alarmSongImageView.image = self.songArray[x.row].artwork?.imageWithSize(cell.alarmSongImageView.frame.size)
         }
         cell.alarmSongImageView.isUserInteractionEnabled = true
@@ -734,7 +734,7 @@ class AddSongsTableViewController: UITableViewController {
                 cellImageView = (self.filteredSongArray[(indexPath as NSIndexPath).row].artwork?.image(at: cell.alarmSongImageView.frame.size))
             } else {
                 //cell.alarmSongTextLabel.text = self.songArray[x.row].title!
-                cellImageView = (self.loadedLibrary[(indexPath as NSIndexPath).row].artwork?.image(at: cell.alarmSongImageView.frame.size))
+                cellImageView = (self.songArray[(indexPath as NSIndexPath).row].artwork?.image(at: cell.alarmSongImageView.frame.size))
             }
             
             DispatchQueue.main.sync {
@@ -773,9 +773,10 @@ class AddSongsTableViewController: UITableViewController {
             //print(filteredSongArray.count)
             return filteredSongArray.count
         }
-        return loadedLibrary.count
+        return songArray.count
     }
     
+    /*
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         lastOffset = scrollView.contentOffset.y
         hasMoved = true
@@ -888,7 +889,7 @@ class AddSongsTableViewController: UITableViewController {
         //reload With new info
         //
     }
-    
+    */
     func loadMoreData(_ dataSource: inout [MPMediaItem], newData:[MPMediaItem]) {
         //print(dataSource)
         dataSource = newData
@@ -913,12 +914,12 @@ class AddSongsTableViewController: UITableViewController {
                 }
                 self.selectedSong = self.filteredSongArray[(indexPath! as NSIndexPath).row]
             } else {
-                self.previewSong(self.loadedLibrary[(indexPath! as NSIndexPath).row])
-                self.currentSongView.updateViewWithMediaItem(self.loadedLibrary[(indexPath! as NSIndexPath).row])
+                self.previewSong(self.songArray[(indexPath! as NSIndexPath).row])
+                self.currentSongView.updateViewWithMediaItem(self.songArray[(indexPath! as NSIndexPath).row])
                 if self.selectedSong == nil {
                     self.displaySelectedView()
                 }
-                self.selectedSong = self.loadedLibrary[(indexPath! as NSIndexPath).row]
+                self.selectedSong = self.songArray[(indexPath! as NSIndexPath).row]
                 
             }
         }
@@ -975,6 +976,7 @@ class AddSongsTableViewController: UITableViewController {
     
     func displaySelectedView() -> Void {
         currentSongView.isHidden = false
+        currentSongView.selectedSongImageView.isHidden = false
         //self.navigationController?.view.frame = CGRect(origin: (self.navigationController?.view.frame.origin)!, size: CGSize(width: (self.navigationController?.view.frame.width)!, height: 170))
         //let currentFrame = self.tableView.frame
         songsTableView.contentInset = UIEdgeInsets(top: 170, left: 0, bottom: 0, right: 0)
