@@ -660,6 +660,8 @@ class AddSongsTableViewController: UITableViewController {
         super.viewDidLoad()
         searchbarController.searchResultsUpdater = self
         searchbarController.dimsBackgroundDuringPresentation = false
+        searchbarController.searchBar.delegate = self
+        
         definesPresentationContext = true
         tableView.tableHeaderView = searchbarController.searchBar
         tableView.setContentOffset(CGPoint(x: 0, y: searchbarController.searchBar.frame.size.height - 60), animated: false)
@@ -998,6 +1000,18 @@ extension AddSongsTableViewController: UISearchResultsUpdating {
         filterSongs(searchController.searchBar.text!)
     }
 }
+
+extension AddSongsTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        ShowSearchBar()
+    }
+    
+    func ShowSearchBar(){
+        
+    }
+    
+}
+
 
 class AddSongTableCellView: UITableViewCell {
     @IBOutlet weak var alarmSongTextLabel: UILabel!
