@@ -20,6 +20,7 @@
 		22AA174D1D151239006BC8C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AA174C1D151239006BC8C0 /* Info.plist */; };
 		22AA17541D151352006BC8C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17501D151352006BC8C0 /* LaunchScreen.storyboard */; };
 		22AA17551D151352006BC8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17521D151352006BC8C0 /* Main.storyboard */; };
+		22FC25011D1CFAC500EF0CDA /* AlarmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		22AA174C1D151239006BC8C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AA17511D151352006BC8C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AA17531D151352006BC8C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				22AA17401D1511C7006BC8C0 /* ViewController.swift */,
 				22AA17441D15120F006BC8C0 /* LocalNotification.swift */,
 				22AA17461D151215006BC8C0 /* SongLibrary.swift */,
+				22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */,
 				22AA17481D15121B006BC8C0 /* SwipeGesture.swift */,
 				22AA174A1D151226006BC8C0 /* View.swift */,
 				22AA17501D151352006BC8C0 /* LaunchScreen.storyboard */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AA17451D15120F006BC8C0 /* LocalNotification.swift in Sources */,
+				22FC25011D1CFAC500EF0CDA /* AlarmDetailViewController.swift in Sources */,
 				22AA17411D1511C7006BC8C0 /* ViewController.swift in Sources */,
 				22AA17131D14F925006BC8C0 /* AppDelegate.swift in Sources */,
 				22AA17471D151215006BC8C0 /* SongLibrary.swift in Sources */,
