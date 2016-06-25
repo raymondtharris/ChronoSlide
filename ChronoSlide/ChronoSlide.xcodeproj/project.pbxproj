@@ -21,6 +21,7 @@
 		22AA17541D151352006BC8C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17501D151352006BC8C0 /* LaunchScreen.storyboard */; };
 		22AA17551D151352006BC8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17521D151352006BC8C0 /* Main.storyboard */; };
 		22FC25011D1CFAC500EF0CDA /* AlarmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */; };
+		22FC25041D1E4AF400EF0CDA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC25021D1E4AF400EF0CDA /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		22AA17511D151352006BC8C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AA17531D151352006BC8C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewController.swift; sourceTree = "<group>"; };
+		22FC25031D1E4AF400EF0CDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				22AA17481D15121B006BC8C0 /* SwipeGesture.swift */,
 				22AA174A1D151226006BC8C0 /* View.swift */,
 				22AA17501D151352006BC8C0 /* LaunchScreen.storyboard */,
+				22FC25021D1E4AF400EF0CDA /* Storyboard.storyboard */,
 				22AA17521D151352006BC8C0 /* Main.storyboard */,
 				22AA17191D14F925006BC8C0 /* Assets.xcassets */,
 				22AA174C1D151239006BC8C0 /* Info.plist */,
@@ -261,6 +264,7 @@
 				22AA174D1D151239006BC8C0 /* Info.plist in Resources */,
 				22AA171A1D14F925006BC8C0 /* Assets.xcassets in Resources */,
 				22AA17551D151352006BC8C0 /* Main.storyboard in Resources */,
+				22FC25041D1E4AF400EF0CDA /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +346,14 @@
 				22AA17531D151352006BC8C0 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22FC25021D1E4AF400EF0CDA /* Storyboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22FC25031D1E4AF400EF0CDA /* Base */,
+			);
+			name = Storyboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
