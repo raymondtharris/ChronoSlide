@@ -22,6 +22,7 @@
 		22AA17551D151352006BC8C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17521D151352006BC8C0 /* Main.storyboard */; };
 		22FC25011D1CFAC500EF0CDA /* AlarmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */; };
 		22FC25041D1E4AF400EF0CDA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC25021D1E4AF400EF0CDA /* Storyboard.storyboard */; };
+		22FC25061D1F06DD00EF0CDA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC25051D1F06DD00EF0CDA /* AlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		22AA17531D151352006BC8C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewController.swift; sourceTree = "<group>"; };
 		22FC25031D1E4AF400EF0CDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
+		22FC25051D1F06DD00EF0CDA /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				22AA17441D15120F006BC8C0 /* LocalNotification.swift */,
 				22AA17461D151215006BC8C0 /* SongLibrary.swift */,
 				22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */,
+				22FC25051D1F06DD00EF0CDA /* AlarmViewController.swift */,
 				22AA17481D15121B006BC8C0 /* SwipeGesture.swift */,
 				22AA174A1D151226006BC8C0 /* View.swift */,
 				22AA17501D151352006BC8C0 /* LaunchScreen.storyboard */,
@@ -294,6 +297,7 @@
 				22AA17411D1511C7006BC8C0 /* ViewController.swift in Sources */,
 				22AA17131D14F925006BC8C0 /* AppDelegate.swift in Sources */,
 				22AA17471D151215006BC8C0 /* SongLibrary.swift in Sources */,
+				22FC25061D1F06DD00EF0CDA /* AlarmViewController.swift in Sources */,
 				22AA17491D15121B006BC8C0 /* SwipeGesture.swift in Sources */,
 				22AA174B1D151226006BC8C0 /* View.swift in Sources */,
 				22AA17431D1511F2006BC8C0 /* Alarm.swift in Sources */,

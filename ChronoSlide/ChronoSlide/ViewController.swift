@@ -19,9 +19,9 @@ protocol pickerToolbar {
 
 // MARK: ALARMS
 
-let AddingNewAlarmNotification:String = "AddingNewAlarmNotification"
-let DeletingAlarmNotification:String = "DeletingAlarmNotification"
-let UpdatingAlarmNotification:String = "UpdatingAlarmNotification"
+//let AddingNewAlarmNotification:String = "AddingNewAlarmNotification"
+//let DeletingAlarmNotification:String = "DeletingAlarmNotification"
+//let UpdatingAlarmNotification:String = "UpdatingAlarmNotification"
 
 class AlarmTableViewController: UITableViewController {
     @IBOutlet weak var settingsButton: UIBarButtonItem!
