@@ -13,6 +13,7 @@ import UIKit
 
 class AlarmDetailViewController: UIViewController {
     var isNewAlarm: Bool = true
+    var alarmToConfig: Alarm = Alarm()
     
     
     override func viewDidLoad() {

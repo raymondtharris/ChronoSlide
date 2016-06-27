@@ -56,4 +56,16 @@ class AlarmViewController: UITableViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddAlarmSegue" {
+            let destViewController = segue.destinationViewController as! AlarmDetailViewController
+            destViewController.isNewAlarm = true
+            
+        } else if segue.identifier == "EditAlarmSegue" {
+            let destViewController = segue.destinationViewController as! AlarmDetailViewController
+            destViewController.isNewAlarm = false
+            destViewController.alarmToConfig = Alarms[selectedIndexPath]
+        }
+    }
+    
 }
