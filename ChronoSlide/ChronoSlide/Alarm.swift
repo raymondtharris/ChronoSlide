@@ -19,7 +19,7 @@ struct Alarm {
     /// On and Off state for an alarm.
     var alarmState: Bool
     /// Name of an alarm.
-    var alarmName: String
+    var alarmName: String?
     /// Song or sound to be used for the alarm.
     var alarmSound: MPMediaItem? = nil
     /// Notification to be used for the alarm to fire.

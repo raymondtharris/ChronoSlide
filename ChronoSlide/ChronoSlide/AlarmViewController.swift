@@ -40,6 +40,46 @@ class AlarmViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as! AlarmTableCellView
+        
+        //View Configuration
+        if Alarms[indexPath.row].alarmMinute < 10 {
+            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ": 0" + Alarms[indexPath.row].alarmMinute.description + "  AM"
+        } else {
+            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ":" + Alarms[indexPath.row].alarmMinute.description + "  AM"
+        }
+        
+        if let alarmName = Alarms[indexPath.row].alarmName {
+            cell.alarmOptionsLabel.text = alarmName
+        } else {
+            cell.alarmOptionsLabel.text = "Alarm"
+        }
+        
+        //Dynamics
+        cell.cellAnimator = UIDynamicAnimator(referenceView: self.view)
+        
+        //Bounding Box
+        cell.boundingBox = UICollisionBehavior(items: [cell])
+        cell.boundingBox?.addBoundary(withIdentifier: "rightBoundary", from: CGPoint(x: cell.frame.size.width, y:  cell.frame.origin.y) , to: CGPoint(x: cell.frame.size.width, y: cell.frame.origin.y + cell.frame.size.height))
+        cell.boundingBox?.addBoundary(withIdentifier: "leftBoundary", from: CGPoint(x: -cell.frame.size.width, y:  cell.frame.origin.y) , to: CGPoint(x: -cell.frame.size.width, y: cell.frame.origin.y + cell.frame.size.height))
+        cell.boundingBox?.addBoundary(withIdentifier: "bottomBoundary", from: CGPoint(x: -cell.frame.size.width, y: cell.frame.origin.y + cell.frame.size.height), to: CGPoint(x: cell.frame.size.width, y: cell.frame.origin.y + cell.frame.size.height))
+        cell.boundingBox?.addBoundary(withIdentifier: "topBoundary", from: CGPoint(x: -cell.frame.size.width, y: cell.frame.origin.y), to: CGPoint(x: cell.frame.size.width, y: cell.frame.origin.y))
+        cell.cellAnimator?.addBehavior(cell.boundingBox!)
+        
+        //Spring
+        cell.springNode = UIAttachmentBehavior(item: cell , attachedToAnchor: CGPoint(x: (cell.frame.width * 1.25) , y: (cell.frame.origin.y + (cell.frame.height/2))))
+        cell.springNode?.length = cell.frame.width * (1.25/2)
+        cell.springNode?.frequency = 0.6
+        cell.cellAnimator?.addBehavior(cell.springNode!)
+        
+        //Elasticity
+        cell.cellElasticity = UIDynamicItemBehavior(items: [cell])
+        cell.cellElasticity?.elasticity = 0.125
+        cell.cellAnimator?.addBehavior(cell.cellElasticity!)
+        
+        // Gesture
+        let gesture = ChronoSwipeGesture.init(target: self, action: #selector(AlarmTableViewController.toggleAlarm(_:)))
+        self.view.addGestureRecognizer(gesture)
+        
         return cell
     }
     
