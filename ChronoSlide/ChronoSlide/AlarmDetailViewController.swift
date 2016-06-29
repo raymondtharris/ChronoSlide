@@ -11,14 +11,32 @@ import UIKit
 
 
 
-class AlarmDetailViewController: UIViewController {
+class AlarmDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     var isNewAlarm: Bool = true
     var alarmToConfig: Alarm = Alarm()
-    
+    var hourData: [String] = []
+    var minuteData: [String] = []
+    var ampmData: [String] = ["AM", "PM"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createPickerViewArrays()
         
         
     }
+
+    private func createPickerViewArrays() {
+        for aNumber in 0..<60 {
+            if aNumber < 10 {
+                minuteData.append("0" + aNumber.description)
+            } else {
+                minuteData.append(aNumber.description)
+            }
+        }
+        for aNumber2 in 1..<13 {
+            hourData.append(aNumber2.description)
+        }
+    }
 }
+
+

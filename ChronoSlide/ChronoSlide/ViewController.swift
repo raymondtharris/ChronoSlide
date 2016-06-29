@@ -334,16 +334,6 @@ extension AlarmTableViewController: UIGestureRecognizerDelegate {
 }
 */
 
-class AlarmTableCellView: UITableViewCell {
-    
-    @IBOutlet weak var alamTimeLabel: UILabel!
-    @IBOutlet weak var alarmOptionsLabel: UILabel!
-    var springNode: UIAttachmentBehavior?
-    var boundingBox: UICollisionBehavior?
-    var cellElasticity: UIDynamicItemBehavior?
-    var cellPush: UIPushBehavior?
-    var cellAnimator: UIDynamicAnimator?
-}
 
 
 //MARK: - ADD

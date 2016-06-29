@@ -16,6 +16,8 @@ struct Alarm {
     var alarmHour: Int
     /// Time value for the minute of an alarm.
     var alarmMinute: Int
+    /// AM or PM value for the alarm.
+    var alarmAMPM: String
     /// On and Off state for an alarm.
     var alarmState: Bool
     /// Name of an alarm.
@@ -39,6 +41,7 @@ struct Alarm {
         self.alarmHour = 8
         self.alarmState = false
         self.alarmName = ""
+        self.alarmAMPM = "AM"
     }
     
     /**
@@ -53,6 +56,7 @@ struct Alarm {
         alarmHour = newHour
         alarmName = newName
         alarmState = false
+        alarmAMPM = "AM"
     }
     
     /**

@@ -43,15 +43,15 @@ class AlarmViewController: UITableViewController {
         
         //View Configuration
         if Alarms[indexPath.row].alarmMinute < 10 {
-            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ": 0" + Alarms[indexPath.row].alarmMinute.description + "  AM"
+            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ": 0" + Alarms[indexPath.row].alarmMinute.description + "  " + Alarms[indexPath.row].alarmAMPM
         } else {
-            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ":" + Alarms[indexPath.row].alarmMinute.description + "  AM"
+            cell.alamTimeLabel.text = Alarms[indexPath.row].alarmHour.description + ":" + Alarms[indexPath.row].alarmMinute.description + "  " + Alarms[indexPath.row].alarmAMPM
         }
         
         if let alarmName = Alarms[indexPath.row].alarmName {
-            cell.alarmOptionsLabel.text = alarmName
+            cell.alarmNameLabel.text = alarmName
         } else {
-            cell.alarmOptionsLabel.text = "Alarm"
+            cell.alarmNameLabel.text = "Alarm"
         }
         
         //Dynamics
@@ -108,4 +108,24 @@ class AlarmViewController: UITableViewController {
         }
     }
     
+    @IBAction func openAppSettings(_ sender: AnyObject) {
+        if let chronoslideSettings = URL(string: UIApplicationOpenSettingsURLString){
+            UIApplication.shared().openURL(chronoslideSettings)
+        }
+    }
+    
+}
+
+
+
+class AlarmTableCellView: UITableViewCell {
+    
+    @IBOutlet weak var alamTimeLabel: UILabel!
+    @IBOutlet weak var alarmNameLabel: UILabel!
+    
+    var springNode: UIAttachmentBehavior?
+    var boundingBox: UICollisionBehavior?
+    var cellElasticity: UIDynamicItemBehavior?
+    var cellPush: UIPushBehavior?
+    var cellAnimator: UIDynamicAnimator?
 }
