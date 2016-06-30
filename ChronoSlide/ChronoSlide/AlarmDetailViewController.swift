@@ -11,7 +11,19 @@ import UIKit
 
 
 
-class AlarmDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class AlarmDetailViewController: UIViewController {
+    //Outlets
+    @IBOutlet weak var alarmTimeTextField: UITextField!
+    
+    @IBOutlet weak var alarmSongAlbumImageView: UIImageView!
+    @IBOutlet weak var alarmSongButton: UIButton!
+    
+    @IBOutlet weak var alarmRepeatButton: UIButton!
+    
+    @IBOutlet weak var alarmNameTextField: UITextField!
+    
+    @IBOutlet weak var alarmDeleteButton: UIButton!
+    
     var isNewAlarm: Bool = true
     var alarmToConfig: Alarm = Alarm()
     var hourData: [String] = []
@@ -39,4 +51,46 @@ class AlarmDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
 }
 
+extension AlarmDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return hourData.count
+        } else if component == 1 {
+            return minuteData.count
+        } else {
+            return ampmData.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            
+        } else if component == 1 {
+            
+        } else {
+            
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return hourData[row]
+        } else if component == 1 {
+            return minuteData[row]
+        } else {
+            return ampmData[row]
+        }
+    }
+}
+
+
+extension AlarmDetailViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+}
 

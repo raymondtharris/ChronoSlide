@@ -50,7 +50,7 @@ class AlarmTableViewController: UITableViewController {
         } else {
             chronoAlarmCell.alamTimeLabel.text = chronoAlarm.alarmHour.description + ":" + chronoAlarm.alarmMinute.description
         }
-        chronoAlarmCell.alarmOptionsLabel.text = chronoAlarm.alarmName
+        //chronoAlarmCell.alarmOptionsLabel.text = chronoAlarm.alarmName
         chronoAlarmCell.cellAnimator = UIDynamicAnimator(referenceView: self.view)
         
         

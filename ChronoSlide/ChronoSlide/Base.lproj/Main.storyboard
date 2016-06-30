@@ -103,12 +103,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete Alarm"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Alarm Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sql-Is-axf">
-                                <frame key="frameInset" minX="65" minY="438" width="247" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS9-fc-oiu">
                                 <frame key="frameInset" minX="134" minY="288" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -131,11 +125,26 @@
                                     <segue destination="7SW-c2-A0L" kind="show" id="b2T-8M-Y6T"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Alarm Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sql-Is-axf">
+                                <frame key="frameInset" minX="65" minY="451" width="247" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="700"/>
+                    <connections>
+                        <outlet property="alarmDeleteButton" destination="jJd-Qc-PTp" id="UGs-pl-hOF"/>
+                        <outlet property="alarmNameTextField" destination="sql-Is-axf" id="Ksn-xb-LC9"/>
+                        <outlet property="alarmRepeatButton" destination="pRa-72-Zwp" id="b2W-jU-6qN"/>
+                        <outlet property="alarmSongAlbumImageView" destination="dMb-e9-UKj" id="ibo-O0-fVA"/>
+                        <outlet property="alarmSongButton" destination="oS9-fc-oiu" id="uD3-Gj-1Zg"/>
+                        <outlet property="alarmSongLabel" destination="oS9-fc-oiu" id="cSZ-Jm-Ble"/>
+                        <outlet property="alarmTimeTextField" destination="TZU-L7-05I" id="ARS-By-a11"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp5-f2-MUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
