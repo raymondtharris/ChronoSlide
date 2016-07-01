@@ -338,8 +338,7 @@ extension AlarmTableViewController: UIGestureRecognizerDelegate {
 
 //MARK: - ADD
 //MARK: ALARMS
-let AddingSongNotification:String = "AddingSongNotification"
-let AddingRepeatsNotification:String = "AddingRepeatsNotification"
+
 
 
 class AddAlarmViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate  {

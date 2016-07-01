@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-
+let AddingSongNotification:String = "AddingSongNotification"
+let AddingRepeatsNotification:String = "AddingRepeatsNotification"
 
 class AlarmDetailViewController: UIViewController {
     //Outlets
@@ -34,6 +35,16 @@ class AlarmDetailViewController: UIViewController {
         super.viewDidLoad()
         createPickerViewArrays()
         
+        if isNewAlarm {
+            alarmDeleteButton.isHidden = true
+        }
+        
+        if alarmToConfig.alarmSound == nil {
+            alarmSongAlbumImageView.isHidden  = true
+        }
+        
+        NotificationCenter.default().addObserver(self, selector: #selector(AddAlarmViewController.addSong(_:)), name: AddingSongNotification, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(AddAlarmViewController.addRepeat(_:)), name: AddingRepeatsNotification, object: nil)
         
     }
 
@@ -49,6 +60,20 @@ class AlarmDetailViewController: UIViewController {
             hourData.append(aNumber2.description)
         }
     }
+    
+    private func buildToolbar() -> UIToolbar{
+        let aToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: (self.navigationController?.view.frame.size.width)!  , height: 50))
+        let previousButton = UIBarButtonItem(title: "Prev", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddAlarmViewController.prevButtonAction(_:)))
+        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddAlarmViewController.nextButtonAction(_:)))
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done , target: self, action: #selector(AddAlarmViewController.doneButtonAction(_:)))
+        let items = [previousButton, nextButton, spacer, doneButton]
+        aToolbar.items = items
+        
+        //aToolbar.sizeToFit()
+        return aToolbar
+    }
+
 }
 
 extension AlarmDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -93,4 +118,7 @@ extension AlarmDetailViewController: UITextFieldDelegate {
         
     }
 }
+
+
+
 
