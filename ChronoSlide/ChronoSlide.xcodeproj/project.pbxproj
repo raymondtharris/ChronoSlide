@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222387FB1D2765D000B94255 /* AlarmRepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222387FA1D2765D000B94255 /* AlarmRepeatViewController.swift */; };
+		222387FD1D2765DE00B94255 /* AlarmSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222387FC1D2765DE00B94255 /* AlarmSongViewController.swift */; };
 		22AA17131D14F925006BC8C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA17121D14F925006BC8C0 /* AppDelegate.swift */; };
 		22AA171A1D14F925006BC8C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AA17191D14F925006BC8C0 /* Assets.xcassets */; };
 		22AA17281D14F925006BC8C0 /* ChronoSlideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AA17271D14F925006BC8C0 /* ChronoSlideTests.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		222387FA1D2765D000B94255 /* AlarmRepeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmRepeatViewController.swift; sourceTree = "<group>"; };
+		222387FC1D2765DE00B94255 /* AlarmSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSongViewController.swift; sourceTree = "<group>"; };
 		22AA170F1D14F925006BC8C0 /* ChronoSlide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChronoSlide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AA17121D14F925006BC8C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22AA17191D14F925006BC8C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				22AA17441D15120F006BC8C0 /* LocalNotification.swift */,
 				22AA17461D151215006BC8C0 /* SongLibrary.swift */,
 				22FC25001D1CFAC500EF0CDA /* AlarmDetailViewController.swift */,
+				222387FA1D2765D000B94255 /* AlarmRepeatViewController.swift */,
+				222387FC1D2765DE00B94255 /* AlarmSongViewController.swift */,
 				22FC25051D1F06DD00EF0CDA /* AlarmViewController.swift */,
 				22AA17481D15121B006BC8C0 /* SwipeGesture.swift */,
 				22AA174A1D151226006BC8C0 /* View.swift */,
@@ -304,7 +310,9 @@
 				22AA17471D151215006BC8C0 /* SongLibrary.swift in Sources */,
 				22FC25061D1F06DD00EF0CDA /* AlarmViewController.swift in Sources */,
 				22AA17491D15121B006BC8C0 /* SwipeGesture.swift in Sources */,
+				222387FB1D2765D000B94255 /* AlarmRepeatViewController.swift in Sources */,
 				22AA174B1D151226006BC8C0 /* View.swift in Sources */,
+				222387FD1D2765DE00B94255 /* AlarmSongViewController.swift in Sources */,
 				22AA17431D1511F2006BC8C0 /* Alarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,6 +47,18 @@ class AlarmDetailViewController: UIViewController {
         NotificationCenter.default().addObserver(self, selector: #selector(AddAlarmViewController.addRepeat(_:)), name: AddingRepeatsNotification, object: nil)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RepeatSegue" {
+            let dest = segue.destinationViewController as! AddAlarmRepeatTableViewController
+            //dest.selectedRepeats = repeatData
+        } else if segue.identifier == "SongSegue" {
+            let dest = segue.destinationViewController as! AddAlarmRepeatTableViewController
+            
+            //dest.selectedRepeats = repeatData
+        }
+    }
+    
 
     private func createPickerViewArrays() {
         for aNumber in 0..<60 {
