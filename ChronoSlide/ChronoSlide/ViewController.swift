@@ -1718,12 +1718,7 @@ class EditAlarmRepeatTableViewController: UITableViewController {
     
 }
 
-class EditRepeatTableCellView: UITableViewCell {
-    @IBOutlet weak var repeatTypeLabel: UILabel!
-    var isChecked: Bool = false
-    
-    
-}
+
 
 
 public class RepeatDataManipulation {
