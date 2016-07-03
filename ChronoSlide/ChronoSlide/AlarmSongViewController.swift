@@ -10,6 +10,10 @@ import Foundation
 import  UIKit
 
 class AlarmSongViewController: UITableViewController {
+    
+    var isNewAlarm: Bool = true
+    var alarmToConfig: Alarm = Alarm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

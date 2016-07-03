@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MediaPlayer
 
+private let RepeatMacros = [repeatType.none, repeatType.monday, repeatType.tuesday, repeatType.wednesday, repeatType.thursday, repeatType.friday, repeatType.saturday, repeatType.sunday, repeatType.everyday]
+
 /// Sound based reminder of a particular time.
 struct Alarm {
     /// Time value for the hour of an alarm.
@@ -30,6 +32,8 @@ struct Alarm {
     var alarmRepeat: [repeatType] = [.none]
     /// Does the alarm have repeats.
     var alarmRepeats: Bool = false
+    
+    
     
     /**
         Initializes an alarm with the base information
@@ -129,6 +133,10 @@ struct Alarm {
      */
     mutating func setAlarmRepeats(_ doesRepeat: Bool){
         alarmRepeats = doesRepeat
+    }
+    
+    static func allRepeats() -> [repeatType] {
+        return RepeatMacros
     }
     
 }

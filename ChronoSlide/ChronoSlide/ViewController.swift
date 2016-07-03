@@ -11,7 +11,7 @@ import MediaPlayer
 import Foundation
 
 
-let RepeatMacros = [repeatType.none, repeatType.monday, repeatType.tuesday, repeatType.wednesday, repeatType.thursday, repeatType.friday, repeatType.saturday, repeatType.sunday, repeatType.everyday]
+//let RepeatMacros = [repeatType.none, repeatType.monday, repeatType.tuesday, repeatType.wednesday, repeatType.thursday, repeatType.friday, repeatType.saturday, repeatType.sunday, repeatType.everyday]
 
 protocol pickerToolbar {
     func toolbar() -> UIToolbar
@@ -1027,15 +1027,15 @@ class AddAlarmRepeatTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddAlarmRepeatCellView", for: indexPath) as! AddRepeatTableCellView
-        cell.repeatTypeLabel.text = RepeatMacros[(indexPath as NSIndexPath).row].description
-        if selectedRepeats.contains(RepeatMacros[(indexPath as NSIndexPath).row]) {
+        cell.repeatTypeLabel.text = Alarm.allRepeats()[(indexPath as NSIndexPath).row].description
+        if selectedRepeats.contains(Alarm.allRepeats()[(indexPath as NSIndexPath).row]) {
             cell.isChecked = true
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RepeatMacros.count
+        return Alarm.allRepeats().count
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -1055,7 +1055,7 @@ class AddAlarmRepeatTableViewController: UITableViewController {
     }
     
     func calculateOtherRepeats(_ tappedOption: AddRepeatTableCellView, row: Int){
-        let tapped = RepeatMacros[row]
+        let tapped = Alarm.allRepeats()[row]
         switch (tapped) {
         case .none:
             selectedRepeats = [.none]
@@ -1084,7 +1084,7 @@ class AddAlarmRepeatTableViewController: UITableViewController {
     
     func clearTableView(){
         let view = self.tableView
-        for anIndex in 0..<RepeatMacros.count  {
+        for anIndex in 0..<Alarm.allRepeats().count  {
             //print(anIndex)
             let current =  view?.cellForRow(at: IndexPath(row: anIndex, section: 0)) as! AddRepeatTableCellView
             
@@ -1602,15 +1602,15 @@ class EditAlarmRepeatTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditAlarmRepeatCellView", for: indexPath) as! EditRepeatTableCellView
-        cell.repeatTypeLabel.text = RepeatMacros[(indexPath as NSIndexPath).row].description
-        if selectedRepeats.contains(RepeatMacros[(indexPath as NSIndexPath).row]) {
+        cell.repeatTypeLabel.text = Alarm.allRepeats()[(indexPath as NSIndexPath).row].description
+        if selectedRepeats.contains(Alarm.allRepeats()[(indexPath as NSIndexPath).row]) {
             cell.isChecked = true
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RepeatMacros.count
+        return Alarm.allRepeats().count
     }
     
     
@@ -1672,7 +1672,7 @@ class EditAlarmRepeatTableViewController: UITableViewController {
     }
     
     func calculateOtherRepeats(_ tappedOption: EditRepeatTableCellView, row: Int){
-        let tapped = RepeatMacros[row]
+        let tapped = Alarm.allRepeats()[row]
         switch (tapped) {
         case .none:
             selectedRepeats = [.none]
@@ -1701,7 +1701,7 @@ class EditAlarmRepeatTableViewController: UITableViewController {
     
     func clearTableView(){
         let view = self.tableView
-        for anIndex in 0..<RepeatMacros.count  {
+        for anIndex in 0..<Alarm.allRepeats().count  {
             let current =  view?.cellForRow(at: IndexPath(row: anIndex, section: 0)) as! EditRepeatTableCellView
             current.accessoryType = UITableViewCellAccessoryType.none
         }
